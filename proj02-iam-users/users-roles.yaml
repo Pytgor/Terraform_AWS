@@ -1,0 +1,15 @@
+# users = {
+#username = string
+#roles = (readonly | developer | admin | auditor) []
+#}[]
+
+
+users:
+- username: John
+  roles: [readonly, developer]
+
+- username: Jane
+  roles: [admin, auditor]
+
+- username: Marcos
+  roles: [readonly]

@@ -1,0 +1,3 @@
+  bucket = "backends3kour"
+  key    = "04-backend/dev/state.tfstate"
+  region = "us-east-1"

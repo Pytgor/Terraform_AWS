@@ -29,8 +29,8 @@ output "vpc_id" {
 }
 
 output "public_subnets" {
-  value = local.public_subnets
+  value = local.output_private_subnets
 }
 output "private_subnets" {
-  value = local.private_subnets
+  value = local.output_private_subnets
 }

@@ -30,7 +30,7 @@ resource "aws_instance" "new_final" {
 }
 
 module "compute" {
-    source = "./module/compute"
-    ami_id = data.aws_ami.ubuntu.id
-  
+  source = "./module/compute"
+  ami_id = data.aws_ami.ubuntu.id
+
 }

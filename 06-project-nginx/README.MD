@@ -6,4 +6,4 @@ Steps for implementation:
 4. [DONE]Deploy an EC2 instance inside of the created subnet
 5. [DONE]Associate a public IP and a security group that allows public ingress
 6. [DONE]Change ec2 instance to use publicly available NGINC AMI
-7. [DONE]Destroy everything
+7. [DONE]Destroy everyth

@@ -12,16 +12,16 @@
 #     }
 # }
 
-resource "aws_s3_bucket" "remove_s3" {
-    bucket = "random-name1232"
+# resource "aws_s3_bucket" "remove_s3" {
+#     bucket = "random-name1232"
 
-    tags = {
-        Project = "s3"
-        Madeby = "Moises"
-    }
-}
+#     tags = {
+#         Project = "s3"
+#         Madeby = "Moises"
+#     }
+# }
 
-import {
-    to = aws_s3_bucket.remove_s3
-    id = "random-name1232"
-}
+# import {
+#     to = aws_s3_bucket.remove_s3
+#     id = "random-name1232"
+# }

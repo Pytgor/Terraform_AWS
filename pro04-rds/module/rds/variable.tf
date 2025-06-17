@@ -4,8 +4,9 @@ variable "project_name" {
 }
 
 variable "instance_type" {
-  type    = string
-  default = "db.t3.micro"
+  type        = string
+  default     = "db.t3.micro"
+  description = "This is my db instance type which is under free tier"
 
   validation {
     condition     = contains(["db.t3.micro"], var.instance_type)
@@ -14,8 +15,9 @@ variable "instance_type" {
 }
 
 variable "storage_size" {
-  type    = number
-  default = 10
+  type        = number
+  default     = 10
+  description = "storage GB to use for my db_instance"
 
   validation {
     condition     = var.storage_size > 5 && var.storage_size < 20
@@ -25,10 +27,12 @@ variable "storage_size" {
 }
 
 variable "engine" {
-  type    = string
-  default = "postgres-latest"
+  type        = string
+  default     = "postgres"
+  description = "Engine to use such as postgres, mysql, and oracle etc"
+
   validation {
-    condition     = contains(["postgres-lastest", "postgres-14"], var.engine)
+    condition     = contains(["postgres", "mysql"], var.engine)
     error_message = "DB engine need to be postgress or mysql "
   }
 
@@ -41,7 +45,8 @@ variable "credentials" {
     password = string
 
   })
-  sensitive = true
+  sensitive   = true
+  description = "The root username and password for the database creation"
 
   validation {
     condition = (
@@ -54,4 +59,20 @@ variable "credentials" {
   }
 
 
+}
+
+
+# variable "project_name" {
+#   type        = string
+#   description = "The name that will be use by our project"
+# }
+
+variable "subnet_ids" {
+  type        = list(string)
+  description = "Subnets ids for the project"
+}
+
+variable "security_group_ids" {
+  type        = list(string)
+  description = "security groups for the project"
 }

@@ -1,10 +1,10 @@
 module "database" {
   source = "./module/rds"
 
-  project_name = "hashicorp/aws"
+  project_name = "proj04-tf"
   credentials = {
     username = "db-admin"
-    password = "1234abvd"
-  }
+    password = "abc234343"
 
+  }
 }

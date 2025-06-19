@@ -11,10 +11,10 @@ resource "aws_instance" "web" {
 
     tags = local.common_tags
   }
-  
+
   lifecycle {
     create_before_destroy = true
-}
+  }
 
 }
 
@@ -29,7 +29,7 @@ resource "aws_security_group" "public_http" {
 resource "aws_vpc_security_group_ingress_rule" "http" {
   security_group_id = aws_security_group.public_http.id
   cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 80    
+  from_port         = 80
   to_port           = 80
   ip_protocol       = "tcp"
 }

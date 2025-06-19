@@ -59,16 +59,16 @@ resource "aws_iam_policy" "lambda_execution" {
 
 
 resource "aws_iam_role" "lambda_role" {
-  assume_role_policy  = data.aws_iam_policy_document.assume_lambda_exec_role.json
-  name                = "Mannually-created-role-2w7wpja3"
-  path                = "/service-role/"
+  assume_role_policy = data.aws_iam_policy_document.assume_lambda_exec_role.json
+  name               = "Mannually-created-role-2w7wpja3"
+  path               = "/service-role/"
 
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_attachment" {
   role       = aws_iam_policy.lambda_execution.name
   policy_arn = "arn:aws:iam::529088288646:role/service-role/Mannually-created-role-2w7wpja3"
-  
+
   #aws_iam_policy.lambda_execution.arn
 
 }

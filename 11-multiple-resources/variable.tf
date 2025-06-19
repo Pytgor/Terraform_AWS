@@ -22,7 +22,7 @@ variable "ec2_instance_config_list" {
   type = list(object({
     instance_type = string
     ami           = string
-    subnet_name = optional(string, "default")
+    subnet_name   = optional(string, "default")
   }))
 
   default = []
@@ -50,7 +50,7 @@ variable "ec2_instance_config_map" {
   type = map(object({
     instance_type = string
     ami           = string
-    subnet_name  = optional(string, "default")
+    subnet_name   = optional(string, "default")
   }))
 
   validation {

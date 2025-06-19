@@ -11,7 +11,7 @@
 #     Managedby = "terraform"
 #     Lifeccycle = "Critical"
 # }
-  
+
 #   lifecycle {
 #     prevent_destroy = false # set to true to never destroy
 #   }

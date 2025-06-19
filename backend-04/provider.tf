@@ -14,7 +14,7 @@ terraform {
     bucket = "backends3kour"
     key    = "04-backend/state.tfstate"
     region = "us-east-1"
-  
+
 
   }
 }

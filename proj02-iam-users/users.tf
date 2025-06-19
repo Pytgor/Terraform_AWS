@@ -4,7 +4,7 @@ locals {
     for user_config in local.users_from_yaml : user_config.username => user_config.roles
   }
 
-  }
+}
 
 
 

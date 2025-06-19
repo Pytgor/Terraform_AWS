@@ -20,7 +20,7 @@ variable "storage_size" {
   description = "storage GB to use for my db_instance"
 
   validation {
-    condition     = var.storage_size > 5 && var.storage_size < 20
+    condition     = var.storage_size >= 5 && var.storage_size <= 20
     error_message = "Storage need to be between 5GB and 20GB due to free tier"
   }
 
@@ -29,11 +29,11 @@ variable "storage_size" {
 variable "engine" {
   type        = string
   default     = "postgres"
-  description = "Engine to use such as postgres, mysql, and oracle etc"
+  description = "Engine to use such as postgres etc"
 
   validation {
-    condition     = contains(["postgres", "mysql"], var.engine)
-    error_message = "DB engine need to be postgress or mysql "
+    condition     = contains(["postgres"], var.engine)
+    error_message = "DB engine need to be postgress"
   }
 
 }
@@ -50,9 +50,15 @@ variable "credentials" {
 
   validation {
     condition = (
-      length(var.credentials.password) >= 6 &&
+
       length(regexall("[a-zA-Z]", var.credentials.password)) > 0 &&
-      length(regexall("[0-9]", var.credentials.password)) > 0
+      length(regexall("[0-9]+", var.credentials.password)) > 0 &&
+      length(regexall("^[a-zA-Z0-9+_?-]{8,}$", var.credentials.password)) > 0
+
+      # length(var.credentials.username) >= 8 &&
+      # length(var.credentials.password) >= 8 &&
+      # length(regexall("[a-zA-Z]", var.credentials.password)) > 0 &&
+      # length(regexall("[0-9]", var.credentials.password)) > 0
     )
     error_message = "password must contains at least 1 character and 1 digit, and be 8 character long "
 

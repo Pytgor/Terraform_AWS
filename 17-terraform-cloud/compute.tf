@@ -19,7 +19,7 @@ resource "aws_instance" "this" {
   instance_type = var.ec2_instance_type
 
   tags = {
-    Name = "Ec2_from_cloudTF"
+    Name      = "Ec2_from_cloudTF"
     CreatedBy = "terraform-cloud"
   }
 }

@@ -35,7 +35,8 @@ data "aws_iam_policy_document" "terraform_cloud_admin_assume_policy" {
     condition {
       test     = "StringLike"
       variable = "${var.terraform_cloud_url}:sub"
-      values   = ["organization:terraform-kour:project:terraform-oidc:workspace:terraform-cli-cloud:run_phase:*"]
+      values = [for workspace in var.admin_role_workspaces :
+      "organization:terraform-kour:project:${var.project_name}:workspace:${workspace}:run_phase:*"]
 
     }
 
